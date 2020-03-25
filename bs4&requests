@@ -16,7 +16,7 @@ for article in soup.find_all('article'):
   summary = article.find('div', class_ = 'entry-content').p.text
   print (summary)
 
-  try:
+  try: # ако няма видеа към статиите, не ги показва. Ако не е в try/except хвърля грешкa.
     vid_src = article.find ('iframe', class_ = 'youtube-player')['src']
     vid_id = vid_src.split('/')[4] # прави линка на list, като го дели на /
     vid_id = vid_id.split('?')[0] # после го дели по ? и взема първата част, което е самия клип
